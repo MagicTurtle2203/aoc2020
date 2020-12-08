@@ -1,5 +1,5 @@
 import re
-from typing import *
+from typing import Dict, List
 
 
 def helper(bag: str, bag_dict: Dict[str, List[str]]) -> int:
