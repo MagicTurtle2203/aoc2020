@@ -1,12 +1,12 @@
-from typing import Dict
+from typing import List
 
 PREAMBLE_SIZE = 25
 
 
-def part1(data: Dict[int, int]) -> int:
+def part1(data: List[int]) -> int:
     for i in range(PREAMBLE_SIZE, len(data)):
         visited = set()
-        pool = [data[j] for j in range(i - PREAMBLE_SIZE, i)]
+        pool = data[i - PREAMBLE_SIZE : i]
 
         for k in pool:
             complement = data[i] - k
@@ -19,9 +19,9 @@ def part1(data: Dict[int, int]) -> int:
     return -1
 
 
-def part2(data: Dict[int, int], target: int) -> int:
-    def get_sum(data: Dict[int, int], first: int, second: int) -> int:
-        return sum(data[i] for i in range(first, second + 1))
+def part2(data: List[int], target: int) -> int:
+    def get_sum(data: List[int], first: int, second: int) -> int:
+        return sum(data[first : second + 1])
 
     first = 0
     second = 1
@@ -32,15 +32,14 @@ def part2(data: Dict[int, int], target: int) -> int:
         else:
             first += 1
 
-    pool = [data[i] for i in range(first, second + 1)]
-    return max(pool) + min(pool)
+    return max(data[first : second + 1]) + min(data[first : second + 1])
 
 
 if __name__ == "__main__":
-    data = {}
+    data = []
     with open("input.txt") as file:
-        for idx, line in enumerate(file):
-            data[idx] = int(line.strip())
+        for line in file:
+            data.append(int(line.strip()))
     p1 = part1(data)
     print(p1)
     print(part2(data, p1))
