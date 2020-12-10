@@ -50,7 +50,7 @@ def part2(data: List[int]) -> int:
 
 
 if __name__ == "__main__":
-    with open("input1.txt") as file:
+    with open("input.txt") as file:
         data = list(map(int, file.read().splitlines()))
     print(part1(data))
     print(part2(data))
