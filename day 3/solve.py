@@ -42,7 +42,7 @@ def get_trees(data: List[str], slope_x: int, slope_y: int) -> int:
 # Right 1, down 2.
 
 
-def part2(data: List[int]) -> int:
+def part2(data: List[str]) -> int:
     return (
         get_trees(data, 1, 1)
         * get_trees(data, 3, 1)
