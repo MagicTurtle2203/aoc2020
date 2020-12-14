@@ -66,5 +66,5 @@ def part2(data: List[str]) -> int:
 if __name__ == "__main__":
     with open("input.txt") as file:
         data = file.read().splitlines()
-    # print(part1(data))
+    print(part1(data))
     print(part2(data))
